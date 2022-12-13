@@ -20,10 +20,6 @@
     </ion-card-header>
     <ion-card-content>
       <p>
-        <ion-icon name="location"> </ion-icon>
-        {{ data.address }}
-      </p>
-      <p>
         <ion-icon name="time"></ion-icon>
         Requested: {{ data.requested_datetime | date : "short" }}
       </p>
@@ -31,10 +27,7 @@
         <ion-icon name="time"></ion-icon>
         Updated: {{ data.updated_datetime | date : "short" }}
       </p>
-      <p>
-        <ion-icon name="time"></ion-icon>
-        Updated: {{ data.updated_datetime | date : "short" }}
-      </p>
+
       <p>
         <ion-icon name="location"> </ion-icon>
         {{ data.address }}
