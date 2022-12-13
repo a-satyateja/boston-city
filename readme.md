@@ -5,3 +5,5 @@
 - Generate custom app icon and splash screens using cordova-res --skip-config --copy
 - Quick Link to Docs: https://ion.link/docs
 - Breathe Deep and Relax.
+
+![image](https://user-images.githubusercontent.com/30695365/207420468-a4d25328-02c2-4ffd-aeaf-cee7dd0ea388.png)
