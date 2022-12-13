@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  bostonDataUrl: 'https://mayors24.cityofboston.gov/open311/v2/requests.json',
+  dataUrl: 'https://us-central1-daily-bee-dev.cloudfunctions.net/boston-public',
 };
 
 /*

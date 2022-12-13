@@ -1,0 +1,78 @@
+<ion-header class="page-header" [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Service Requests </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-content>
+    <!-- The loading page is shown to render Loading text/animation when the data is being fetched from the server. 
+    This can also be replaced with a custom shimmer page, that'll reduce the cognitive overload for the end user. -->
+    <div *ngIf="(serviceRequestArray$ | async) === null">Loading...</div>
+
+    <!-- The cdk-virtual-scroll-viewport is a component in the Angular CDK (Component Development Kit)
+       that enables efficient rendering of large lists of items.
+       It works by only rendering the items that are visible in the viewport,
+       which helps improve the performance of your application when dealing with large lists of data. -->
+    <cdk-virtual-scroll-viewport
+      itemSize="220"
+      minBufferPx="1000"
+      maxBufferPx="10000"
+    >
+      <ion-list>
+        <ion-card
+          *cdkVirtualFor="let item of serviceRequestArray$ | async"
+          (click)="showMoreDetails(item)"
+        >
+          <ion-grid>
+            <ion-row>
+              <ion-col size="100px">
+                <div class="service-card-image">
+                  <img
+                    *ngIf="item?.media_url"
+                    src="{{item?.media_url}}"
+                    style="object-fit: cover; width: 100%; height: 100%"
+                  />
+                  <p *ngIf="!item?.media_url">No Media</p>
+                </div>
+              </ion-col>
+              <ion-col>
+                <ion-card-header>
+                  <ion-card-title>{{item.service_name}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-header>
+                  <ion-card-subtitle class="service-subtitle">
+                    <span>{{item.service_request_id}}</span>
+                    <span
+                      [ngClass]="{
+                      'cancelled': item.status === 'cancelled',
+                      'open': item.status === 'open',
+                      'closed': item.status === 'closed'
+                    }"
+                      >{{item.status | titlecase}}</span
+                    >
+                  </ion-card-subtitle>
+                </ion-card-header>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-card-content class="service-card-content">
+            <p>
+              <ion-icon name="location"> </ion-icon>
+              {{item.address}}
+            </p>
+            <p>
+              <ion-icon name="time"></ion-icon>
+              Requested: {{ getTime(item.requested_datetime)}}
+            </p>
+            <p>
+              <ion-icon name="time"></ion-icon>
+              Updated: {{ getTime(item.updated_datetime)}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+    </cdk-virtual-scroll-viewport>
+  </ion-content>
+</ion-content>

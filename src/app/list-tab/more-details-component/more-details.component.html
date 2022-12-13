@@ -1,0 +1,37 @@
+<ion-header class="page-header" [translucent]="true">
+  <ion-toolbar>
+    <ion-icon tabindex="1" class="pointer" (click)="close()">close</ion-icon>
+    <ion-title> {{ titleDetails.title }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ data.service_name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-header>
+      <ion-card-subtitle class="service-subtitle">
+        {{ data.status_notes }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <ion-icon name="location"> </ion-icon>
+        {{ data.address }}
+      </p>
+      <p>
+        <ion-icon name="time"></ion-icon>
+        Requested: {{ getTime(data.requested_datetime) }} Requested:
+        {{ data.requested_datetime | date : "short" }}
+      </p>
+      <p>
+        <ion-icon name="time"></ion-icon>
+        Updated: {{ getTime(data.updated_datetime) }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- TODO: Show on map and add link to navigate to the  -->
+  <!-- <ion-button (click)="openMaps(data.lat, data.long)">Show On Map</ion-button> -->
+</ion-content>

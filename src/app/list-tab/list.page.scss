@@ -1,0 +1,51 @@
+.page-header {
+  text-align: center;
+}
+
+cdk-virtual-scroll-viewport {
+  height: 100%;
+  width: 100%;
+}
+
+.service-card-image {
+  width: 100px;
+  height: 100px;
+  background-color: lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card-content {
+  border-top: 1px dashed lightgrey;
+  background: #d3d3d342;
+  p {
+    display: flex;
+    align-items: center;
+    ion-icon {
+      margin-right: 5px;
+    }
+  }
+}
+.service-subtitle {
+  display: flex;
+  justify-content: space-between;
+  .open {
+    background: dodgerblue;
+    padding: 0 5px;
+    border-radius: 3px;
+    color: white;
+  }
+  .closed {
+    background: gray;
+    padding: 0 5px;
+    border-radius: 3px;
+    color: white;
+  }
+  .cancelled {
+    background: lightcoral;
+    padding: 0 5px;
+    border-radius: 3px;
+    color: white;
+  }
+}
