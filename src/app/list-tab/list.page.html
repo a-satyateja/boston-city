@@ -21,6 +21,7 @@
     >
       <ion-list>
         <ion-card
+          class="service-card"
           *cdkVirtualFor="let item of serviceRequestArray$ | async"
           (click)="showMoreDetails(item)"
         >

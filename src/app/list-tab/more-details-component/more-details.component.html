@@ -12,7 +12,10 @@
     </ion-card-header>
     <ion-card-header>
       <ion-card-subtitle class="service-subtitle">
-        {{ data.status_notes }}
+        Id: {{ data.service_request_id }}
+      </ion-card-subtitle>
+      <ion-card-subtitle class="service-subtitle">
+        Notes: {{ data.status_notes }}
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
@@ -22,13 +25,36 @@
       </p>
       <p>
         <ion-icon name="time"></ion-icon>
-        Requested: {{ getTime(data.requested_datetime) }} Requested:
-        {{ data.requested_datetime | date : "short" }}
+        Requested: {{ data.requested_datetime | date : "short" }}
       </p>
       <p>
         <ion-icon name="time"></ion-icon>
-        Updated: {{ getTime(data.updated_datetime) }}
+        Updated: {{ data.updated_datetime | date : "short" }}
       </p>
+      <p>
+        <ion-icon name="time"></ion-icon>
+        Updated: {{ data.updated_datetime | date : "short" }}
+      </p>
+      <p>
+        <ion-icon name="location"> </ion-icon>
+        {{ data.address }}
+      </p>
+      <p>
+        <ion-icon name="location"> </ion-icon>
+        Latitude: {{ data.lat }}
+      </p>
+      <p>
+        <ion-icon name="location"> </ion-icon>
+        Longitude: {{ data.long }}
+      </p>
+      <div class="service-card-image">
+        <img
+          *ngIf="data?.media_url"
+          src="{{ data?.media_url }}"
+          style="object-fit: cover; width: 100%; height: 100%"
+        />
+        <p *ngIf="!data?.media_url">No Media</p>
+      </div>
     </ion-card-content>
   </ion-card>
 

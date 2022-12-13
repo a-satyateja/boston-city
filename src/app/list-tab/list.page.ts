@@ -60,7 +60,7 @@ export class ListPage {
       component: MoreDetailsComponent,
       componentProps: { data },
       mode: 'ios',
-      breakpoints: [0.25, 0.5, 0.75],
+      breakpoints: [0, 0.25, 0.5, 0.75, 1],
       initialBreakpoint: 0.75,
     });
     modal.present();
