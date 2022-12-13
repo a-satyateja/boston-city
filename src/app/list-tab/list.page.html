@@ -6,9 +6,12 @@
 
 <ion-content [fullscreen]="true">
   <ion-content>
-    <!-- The loading page is shown to render Loading text/animation when the data is being fetched from the server. 
+    <!-- The loading item is shown to render Loading text/animation when the data is being fetched from the server. 
     This can also be replaced with a custom shimmer page, that'll reduce the cognitive overload for the end user. -->
-    <div *ngIf="(serviceRequestArray$ | async) === null">Loading...</div>
+    <ion-item *ngIf="(serviceRequestArray$ | async) === null">
+      <ion-label>Loading..</ion-label>
+      <ion-spinner name="circular"></ion-spinner>
+    </ion-item>
 
     <!-- The cdk-virtual-scroll-viewport is a component in the Angular CDK (Component Development Kit)
        that enables efficient rendering of large lists of items.
